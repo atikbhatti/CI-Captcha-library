@@ -1,17 +1,21 @@
 # CI-Captcha-library
 Simple MathCaptcha library for Codegniter
 
-# Instructions
+## Instructions, how to use it
 
-- copy Captcha.php to Codegniter Library folder
+> copy Captcha.php to Codegniter Library folder `application/libraries`
+> Load this Library into controller like `$this->load->library('captcha')`
 
-- Place this code where you want to print captcha
-
-    $this->captcha->output();
+> Now, put this line of code where you want to print captcha (inside views)
+`$this->captcha->output();`
     
-- Varify Captcha
+### To varify Captcha
+```
+$captcha = $this->input->post('captcha');
 
-    $captcha 	= $this->input->post('captcha');
-    
-    if ($this->captcha->verify($captcha) == false)
-				$this->session->set_flashdata('error','Incorrect captcha');
+if ($this->captcha->verify($captcha) == false) {
+    $this->session->set_flashdata('error','Incorrect captcha');
+}
+```
+
+Feel free to fork and contribute to it..
